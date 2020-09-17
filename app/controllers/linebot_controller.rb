@@ -34,6 +34,9 @@ class LinebotController < ApplicationController
           when 4
             push = "ごめん。足折って入院してる。"
             displayCommand()
+          else
+            push = "説明をちゃんと読んでください。数字を選んでって言ってるじゃないですか。"
+            displayCommand()
           end
         end
         message = {
@@ -68,6 +71,6 @@ class LinebotController < ApplicationController
     end
 
     def displayCommand
-      push = "1. ほら、エサだぞ。\n2. あれ？最近痩せた？\n3. ん？ちょっと太った、、？\n4. バドミントンしようぜ！"
+      push = "下の数字のどれかを選んでみてくださいまし。\n↓↓↓↓↓\n1. ほら、エサだぞ。\n2. あれ？最近痩せた？\n3. ん？ちょっと太った、、？\n4. バドミントンしようぜ！"
     end
 end
