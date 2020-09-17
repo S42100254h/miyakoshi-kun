@@ -20,19 +20,19 @@ class LinebotController < ApplicationController
         # ユーザーからテキスト形式のメッセージが送られて来た場合
         when Line::Bot::Event::MessageType::Text
           input = event.message['text']
-          explain = "下の数字のどれかを選んでみてくださいまし。\n↓↓↓↓↓\n1. ほら、エサだぞ。\n2. あれ？最近痩せた？\n3. ん？ちょっと太った、、？\n4. バドミントンしようぜ！"
+          explain = "下のアルファベットのどれかを選んでみてくださいまし。\n↓↓↓↓↓\n1. ほら、エサだぞ。\n2. あれ？最近痩せた？\n3. ん？ちょっと太った、、？\n4. バドミントンしようぜ！"
 
           case input
-          when 1
+          when a
             push = "おおぉおーー！\nそれはカップラーメン（デブの元）じゃいなか！！\nうっひょひょひょひょーー！！\n\n#{explain}"
-          when 2
+          when b
             push = "いや、最近7kg太った、、。\n\n#{explain}"
-          when 3
+          when c
             push = "あん？？？ワロス\n\n#{explain}"
-          when 4
+          when d
             push = "ごめん。足折って入院してる。\n\n#{explain}"
           else
-            push = "説明をちゃんと読んでください。数字を選んでって言ってるじゃないですか。\n\n#{explain}"
+            push = "説明をちゃんと読んでください。アルファベットを選んでって言ってるじゃないですか。\n\n#{explain}"
           end
         end
         message = {
