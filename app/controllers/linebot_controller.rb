@@ -35,10 +35,9 @@ class LinebotController < ApplicationController
             push = "説明をちゃんと読んでください。数字を選んでって言ってるじゃないですか。"
           end
         end
-        message = {
-          type: 'text',
-          text: push + explain
-        }
+
+        message = [{ type: 'text', text: push }, { type: 'text', text: explain }]
+        
         client.reply_message(event['replyToken'], message)
         
       # LINEお友達追された場合（機能②）
