@@ -19,9 +19,22 @@ class LinebotController < ApplicationController
         case event.type
         # ユーザーからテキスト形式のメッセージが送られて来た場合
         when Line::Bot::Event::MessageType::Text
+          input = event.message['text']
 
-        else
-
+          case input
+          when 1
+            push = "おおぉおーー！\nそれはカップラーメン（デブの元）じゃいなか！！\nうっひょひょひょひょーー！！"
+            displayCommand()
+          when 2
+            push = "いや、最近7kg太った、、。"
+            displayCommand()
+          when 3
+            push = "あん？？？ワロス"
+            displayCommand()
+          when 4
+            push = "ごめん。足折って入院してる。"
+            displayCommand()
+          end
         end
         
       # LINEお友達追された場合（機能②）
@@ -47,5 +60,9 @@ class LinebotController < ApplicationController
         config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
         config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
       }
+    end
+
+    def displayCommand
+      push = "1. ほら、エサだぞ。\n2. あれ？最近痩せた？\n3. ん？ちょっと太った、、？\n4. バドミントンしようぜ！"
     end
 end
