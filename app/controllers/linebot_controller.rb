@@ -20,7 +20,7 @@ class LinebotController < ApplicationController
         # ユーザーからテキスト形式のメッセージが送られて来た場合
         when Line::Bot::Event::MessageType::Text
           input = event.message['text']
-          explain = "\n\n下のアルファベットのどれかを選んでみてくださいまし。\n↓↓↓↓↓\n1. ほら、エサだぞ。\n2. あれ？最近痩せた？\n3. ん？ちょっと太った、、？\n4. バドミントンしようぜ！"
+          # explain = "\n\n下のアルファベットのどれかを選んでみてくださいまし。\n↓↓↓↓↓\n1. ほら、エサだぞ。\n2. あれ？最近痩せた？\n3. ん？ちょっと太った、、？\n4. バドミントンしようぜ！"
 
           case input
           when a
@@ -37,7 +37,7 @@ class LinebotController < ApplicationController
         end
         message = {
           type: 'text',
-          text: push + explain
+          text: push
         }
         client.reply_message(event['replyToken'], message)
         
