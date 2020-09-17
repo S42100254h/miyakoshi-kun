@@ -36,6 +36,11 @@ class LinebotController < ApplicationController
             displayCommand()
           end
         end
+        message = {
+          type: 'text',
+          text: push
+        }
+        client.reply_message(event['replyToken'], message)
         
       # LINEお友達追された場合（機能②）
       when Line::Bot::Event::Follow
