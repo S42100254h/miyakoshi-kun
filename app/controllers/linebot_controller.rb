@@ -24,15 +24,15 @@ class LinebotController < ApplicationController
 
           case input
           when a
-            push = "おおぉおーー！\nそれはカップラーメン（デブの元）じゃいなか！！\nうっひょひょひょひょーー！！\n\n#{explain}"
+            push = "おおぉおーー！\nそれはカップラーメン（デブの元）じゃいなか！！\nうっひょひょひょひょーー！！\n\n" + explain
           when b
-            push = "いや、最近7kg太った、、。\n\n#{explain}"
+            push = "いや、最近7kg太った、、。\n\n" + explain
           when c
-            push = "あん？？？ワロス\n\n#{explain}"
+            push = "あん？？？ワロス\n\n" + explain
           when d
-            push = "ごめん。足折って入院してる。\n\n#{explain}"
+            push = "ごめん。足折って入院してる。\n\n" + explain
           else
-            push = "説明をちゃんと読んでください。アルファベットを選んでって言ってるじゃないですか。\n\n#{explain}"
+            push = "説明をちゃんと読んでください。アルファベットを選んでって言ってるじゃないですか。\n\n" + explain
           end
         end
         message = {
