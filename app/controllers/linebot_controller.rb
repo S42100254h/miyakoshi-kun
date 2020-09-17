@@ -22,16 +22,16 @@ class LinebotController < ApplicationController
           input = event.message['text']
 
           case input
-          when 1
+          when "１"
             push = "おおぉおーー！\nそれはカップラーメン（デブの元）じゃいなか！！\nうっひょひょひょひょーー！！"
             displayCommand()
-          when 2
+          when "２"
             push = "いや、最近7kg太った、、。"
             displayCommand()
-          when 3
+          when "３"
             push = "あん？？？ワロス"
             displayCommand()
-          when 4
+          when "４"
             push = "ごめん。足折って入院してる。"
             displayCommand()
           else
