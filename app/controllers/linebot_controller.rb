@@ -20,19 +20,23 @@ class LinebotController < ApplicationController
         # ユーザーからテキスト形式のメッセージが送られて来た場合
         when Line::Bot::Event::MessageType::Text
           input = event.message['text']
-          explain = "下のアルファベットのどれかを選んでみてくださいまし。\n↓↓↓↓↓\n1. ほら、エサだぞ。\n2. あれ？最近痩せた？\n3. ん？ちょっと太った、、？\n4. バドミントンしようぜ！"
 
           case input
-          when a
-            push = "おおぉおーー！\nそれはカップラーメン（デブの元）じゃいなか！！\nうっひょひょひょひょーー！！\n\n#{explain}"
-          when b
-            push = "いや、最近7kg太った、、。\n\n#{explain}"
-          when c
-            push = "あん？？？ワロス\n\n#{explain}"
-          when d
-            push = "ごめん。足折って入院してる。\n\n#{explain}"
+          when 1
+            push = "おおぉおーー！\nそれはカップラーメン（デブの元）じゃいなか！！\nうっひょひょひょひょーー！！"
+            displayCommand()
+          when 2
+            push = "いや、最近7kg太った、、。"
+            displayCommand()
+          when 3
+            push = "あん？？？ワロス"
+            displayCommand()
+          when 4
+            push = "ごめん。足折って入院してる。"
+            displayCommand()
           else
-            push = "説明をちゃんと読んでください。アルファベットを選んでって言ってるじゃないですか。\n\n#{explain}"
+            push = "説明をちゃんと読んでください。数字を選んでって言ってるじゃないですか。"
+            displayCommand()
           end
         end
         message = {
@@ -64,5 +68,9 @@ class LinebotController < ApplicationController
         config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
         config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
       }
+    end
+
+    def displayCommand
+      push = "下の数字のどれかを選んでみてくださいまし。\n↓↓↓↓↓\n1. ほら、エサだぞ。\n2. あれ？最近痩せた？\n3. ん？ちょっと太った、、？\n4. バドミントンしようぜ！"
     end
 end
