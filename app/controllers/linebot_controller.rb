@@ -32,7 +32,7 @@ class LinebotController < ApplicationController
           when "4"
             push = "ごめん。足折って入院してる。"
           else
-            push = "説明をちゃんと読んでください。数字を選んでって言ってるじゃないですか。/n怒りますよ。"
+            push = "説明をちゃんと読んでください。数字を選んでって言ってるじゃないですか。\n怒りますよ。"
           end
         end
 
